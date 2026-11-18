@@ -2,6 +2,10 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
+import os
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+
 
 try:
     scaler = joblib.load("scaler.pkl")
@@ -16,9 +20,10 @@ except:
 
 st.title("Churn Prediction App")
 st.divider()
-st.write("Please enter the values and hit the predict button for getting a prediction.")
+st.write("Please enter the values and hit the predict button for grtting a prediction.")
 
 st.divider()
+
 
 
 credit_score = st.number_input("Credit Score", min_value=300, max_value=900, value=650)

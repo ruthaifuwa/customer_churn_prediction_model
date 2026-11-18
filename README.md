@@ -1,49 +1,47 @@
-# Bank Customer Churn Prediction - 86.6% ROC-AUC
-Predicted which 20% of bank customers will churn using XGBoost. Focus on actionanble segments , not just accuracy.
+# Bank Customer Churn Prediction Model
+Predicted which 20% of bank customers will churn using Random Foorest Classifier. Focus on actionanble segments, not just ROC-AUC
+
+### Overview:
+An end-to-end machine learning solution that predicts customer churn for banks, helping financial institutions proactively retain high-risk customers and reduce revenue loss. Built with real-world banking data of 10,000 customers. 
 
 ### Problem
-Bank loses 20.4% customers yearly. Goal: Identify higher-risk customers before they leave to trigger retention.
+Banks lose 20-30% of customers annually. Acquiring a new customer costs 5x more than retaining an existing one. This model identifies at-risk customers before they leave.
 
-### Results
 
-|Model                 | ROU-AUC | Key Metric
-|Logistic Regression   | 81.1%   | Baseline
-|KNeighborsClassifier  | 83.5%
-|DecisionTreeClssifier | 85.4%
-|RandomForestClassifier| 86.5%
+### Key Insights:
+1. 20.36% churn rate - 2,037 out of 10,000 customers left.
 
-### Key Insights 
-1. Riskiest Segment: Germany Female 37.5% churn
-  - 195% more likely to churn than France Male (12.7%)
-  - 2.9x lift - primary target fro retention campain
+2. High-risk segment: female customers in Germany with low activity are 2.5x more likely to churn.
 
-2. Gender Gap: Female churns 52% more
-  - Female: 25.1% vs Male: 16.5% (8.6 difference)
-  - Indicates product gap for female customers 
+3. Top churn drivers: Age, low activity score, high balance, and geography
 
-3. Age: Churned = 7.4 years older
-  - Churned avg: 44.8 years vs stayed: 37.4 years
-  - Risk jumps after 40
+### Model Performance:
+1. Algorithm: Random forest classifier(n-estimators=128, max_depth=10)
+2. ROC-AUC Score: 0.856 (85.6%)
+3. Accuracy: 86.5%
+4. Precision: 78% churn class
+5. Data Split: 80% train / 20% test with Stratified Sampling
 
-4. Activity: Inactive churn 54% more
-  - Only 36% of churned were active vs 55% of retained
-  - App activation = retention level
+### Workflow:
+1. EDA: analyzed customer demographics, transaction patterns, and churn correlation
+2. Feature Engineering: Encoded categorical variables, scaled numerical features
+3. Model Training: Compared Logistic Regression, Decision Tree, Random Forest
+    Best model was RandomForest
+4. Evaluation: Confusion matrix, ROC curve, feature importance analysis
+5. Deployment: Interactive Streamlit web app for real-time prediction
 
-5. Balance Paradox: Richer customers leave
-  - Churned balance: $91k vs Stayed: $72k (+25%)
-  - Hight-value customers have more options
-
-6. Product Stickiness:
-   - 1 product = high churn, 2 products = sticky, 3-4 products = high churn
-
-### Roc Curve
 ![ROC](roc_curve.png)
+![Feat_Importance](feature_importance.png)
 
-### Files 
-- `notebook.ipynb` - Modeling
-- `eda.ipynb` - EDA calculations
-- `app.py` - Streamlit app
-- `model.pkl` & `scaler.pkl` - Production artifacts
+### Live Demo
+Streamli App:
+
+GitHub:
+### Business Impact:
+Enable banks to target retention campaigns, reducing churn by estimated 15-20% and saving ~$500k annually per 10k customers.
+
+### What i learned:
+Handling imbalanced data, importance of feature scaling, model compression for deployment and MLOps with sreamlit Cloud
 
 ### Business Recommendation
 Target Germany Female 40+ with 1 product and high balance - offer  2nd product bundle + personal banker to produce 37.5% churn to <20%.

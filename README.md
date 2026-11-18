@@ -34,9 +34,9 @@ Banks lose 20-30% of customers annually. Acquiring a new customer costs 5x more 
 ![Feat_Importance](feature_importance.png)
 
 ### Live Demo
-Streamli App:
+Streamlit App: https://ruthaifuwa-customer-churn-prediction-model-app-c0phwq.streamlit.app
 
-GitHub:
+GitHub: https://github.com/ruthaifuwa/customer_churn_prediction_model
 ### Business Impact:
 Enable banks to target retention campaigns, reducing churn by estimated 15-20% and saving ~$500k annually per 10k customers.
 

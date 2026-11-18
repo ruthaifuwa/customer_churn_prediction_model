@@ -1,11 +1,5 @@
-pandas
-scikit-learn
-xgboost
-DecisionTreeClassifier
-LogisticRegression
-KNeigborsClassifier
-RandomForestClassifier
-matplotlib
-numpy
-seaborn
 streamlit
+pandas
+numpy
+scikit-learn
+joblib
